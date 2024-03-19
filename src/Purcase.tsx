@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css'
-const PurchaseCalculator = () => {
+export const PurchaseCalculator = () => {
     const [purchaseAmount, setPurchaseAmount] = useState(0);
     const [expectedProfit, setExpectedProfit] = useState(100);
     const [vatPercentage, setVatPercentage] = useState(20);
@@ -8,20 +8,21 @@ const PurchaseCalculator = () => {
     const [additionalAmount, setAdditionalAmount] = useState(0);
     const [addedValue, setAddedValue] = useState(30);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const calculateSellingAmount = () => {
         const commission = commissionPercentage / 100;
         const vat = vatPercentage / 100;
 
         const sum = (expectedProfit + purchaseAmount) / (1 - commission - vat);
 
-        const count =Math.round(sum / 100)
+        const count = Math.round(sum / 100)
 
         return sum + (count * addedValue )
     };
 
     useEffect(() => {
-        setAdditionalAmount(calculateSellingAmount())
-    }, [purchaseAmount, expectedProfit, vatPercentage, commissionPercentage, addedValue])
+        setAdditionalAmount(calculateSellingAmount)
+    }, [purchaseAmount, expectedProfit, vatPercentage, commissionPercentage, addedValue, calculateSellingAmount ])
 
     return (
         <div className='App'>
@@ -83,5 +84,3 @@ const PurchaseCalculator = () => {
         </div>
     );
 };
-
-export default PurchaseCalculator;
