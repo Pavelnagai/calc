@@ -1,0 +1,39 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  width: 300px; /* задайте ширину блока по вашему усмотрению */
+  margin: 0 auto; /* автоматически центрирует блок по горизонтали */
+  text-align: left; /* выравнивает содержимое блока по левому краю */
+  padding: 20px; /* добавим немного отступов для красоты */
+  border: 1px solid #ccc; /* добавим рамку для наглядности */
+  border-radius: 5px; /* добавим скругленные углы блока */
+}
+
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  width: 150px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Дополнительный стиль для label и input */
+label, input {
+  display: block;
+}
